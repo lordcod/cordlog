@@ -3,6 +3,8 @@ import logging.config
 from typing import Optional, overload
 
 from aiohttp import ClientSession
+from .formatter import ColoredFormatter
+from .discord import DiscordHandler
 from .logger import LordLogger, TRACE, CORE
 from . import storage
 
