@@ -1,4 +1,5 @@
 import logging
+import copy
 
 TRACE = logging.DEBUG - 5
 CORE = logging.INFO + 5
@@ -24,5 +25,6 @@ def colorize(level, text):
 
 class ColoredFormatter(logging.Formatter):
     def format(self, record):
-        record.levelname = colorize(record.levelname, record.levelname)
-        return super().format(record)
+        record_copy = copy.copy(record)
+        record_copy.levelname = colorize(record.levelname, record.levelname)
+        return super().format(record_copy)
